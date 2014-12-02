@@ -6,7 +6,7 @@ module Twitter
       created_at: {type: Time, converter: TimeFormat.new("%a %b %d %T +0000 %Y")},
       favorite_count: {type: Int32},
       favorited: {type: Bool},
-      id: {type: Int32},
+      id: {type: Int64},
       in_reply_to_screen_name: {type: String, nilable: true},
       in_reply_to_status_id: {type: Int32, nilable: true},
       in_reply_to_user_id: {type: Int32, nilable: true},

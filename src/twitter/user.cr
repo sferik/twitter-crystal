@@ -13,7 +13,7 @@ module Twitter
       following: {type: Bool},
       friends_count: {type: Int32},
       geo_enabled: {type: Bool},
-      id: {type: Int32},
+      id: {type: Int64},
       is_translation_enabled: {type: Bool},
       is_translator: {type: Bool},
       lang: {type: String},
