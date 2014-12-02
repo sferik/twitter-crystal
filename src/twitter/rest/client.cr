@@ -1,11 +1,15 @@
 require "json"
 require "net/http"
 require "oauth"
+require "twitter/rest/timelines"
+require "twitter/rest/users"
 require "uri"
 
 module Twitter
   module REST
     class Client
+      include Twitter::REST::Users
+      include Twitter::REST::Timelines
       Host = "api.twitter.com"
       Port = 443
       SSL  = true
