@@ -1,8 +1,8 @@
 require "json"
-require "net/http"
+require "http/client"
 require "oauth"
-require "twitter/rest/timelines"
-require "twitter/rest/users"
+require "./timelines"
+require "./users"
 require "uri"
 
 module Twitter
