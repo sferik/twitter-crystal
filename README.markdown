@@ -24,7 +24,7 @@ crystal deps
 This will get the latest code from this github repository and copy it to a `libs` directory. All that's left is to require it:
 
 ```crystal
-require "./libs/twitter/twitter"
+require "twitter"
 ```
 
 ## Usage
