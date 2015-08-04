@@ -13,6 +13,7 @@ module Twitter
       lang: {type: String},
       retweet_count: {type: Int32},
       retweeted: {type: Bool},
+      retweeted_status: {type: Tweet, nilable: true},
       source: {type: String}
       text: {type: String},
       truncated: {type: Bool},
