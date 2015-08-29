@@ -35,8 +35,7 @@ module Twitter
       profile_sidebar_fill_color: {type: String},
       profile_text_color: {type: String},
       profile_use_background_image: {type: Bool},
-      # TODO: Figure out how to parse reserved keywords
-      # protected: {type: Bool},
+      protected: {type: Bool},
       screen_name: {type: String},
       status: {type: Twitter::Tweet, nilable: true},
       statuses_count: {type: Int32},
