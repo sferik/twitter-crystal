@@ -2,8 +2,8 @@ require "json"
 
 module Twitter
   class Tweet
-      created_at: {type: Time, converter: TimeFormat.new("%a %b %d %T +0000 %Y")},
     JSON.mapping({
+      created_at: {type: Time, converter: Time::Format.new("%a %b %d %T +0000 %Y")},
       favorite_count: {type: Int32},
       favorited: {type: Bool},
       id: {type: Int64},

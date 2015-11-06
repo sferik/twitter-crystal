@@ -4,7 +4,7 @@ module Twitter
   class User
     JSON.mapping({
       contributors_enabled: {type: Bool},
-      created_at: {type: Time, converter: TimeFormat.new("%a %b %d %T +0000 %Y")},
+      created_at: {type: Time, converter: Time::Format.new("%a %b %d %T +0000 %Y")},
       default_profile: {type: Bool},
       default_profile_image: {type: Bool},
       favourites_count: {type: Int32},
