@@ -2,7 +2,7 @@ require "json"
 
 module Twitter
   struct Errors
-    json_mapping({
+    JSON.mapping({
       errors: {type: Array(Twitter::Error)},
     })
   end

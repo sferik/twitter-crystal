@@ -2,7 +2,7 @@ require "json"
 
 module Twitter
   class User
-    json_mapping({
+    JSON.mapping({
       contributors_enabled: {type: Bool},
       created_at: {type: Time, converter: TimeFormat.new("%a %b %d %T +0000 %Y")},
       default_profile: {type: Bool},

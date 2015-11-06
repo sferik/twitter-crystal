@@ -2,7 +2,7 @@ require "json"
 
 module Twitter
   struct Error
-    json_mapping({
+    JSON.mapping({
       message: {type: String},
       code: {type: Int32},
     })
