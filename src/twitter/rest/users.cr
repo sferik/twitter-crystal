@@ -6,7 +6,7 @@ module Twitter
         Twitter::User.from_json(response)
       end
 
-      def user(user_id: Int32, options = {} of String => String)
+      def user(user_id : Int32, options = {} of String => String)
         response = get("/1.1/users/show.json", options.merge({"user_id" => user_id.to_s}))
         Twitter::User.from_json(response)
       end
