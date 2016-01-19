@@ -53,7 +53,7 @@ module Twitter
       end
 
       private def to_query_string(hash : Hash)
-        CGI.build_form do |form_builder|
+        HTTP::Params.build do |form_builder|
           hash.each do |key, value|
             form_builder.add(key, value)
           end
