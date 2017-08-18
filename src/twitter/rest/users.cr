@@ -6,7 +6,7 @@ module Twitter
         Twitter::User.from_json(response)
       end
 
-      def user(user_id : Int64, options = {} of String => String)
+      def user(user_id : Int32 | Int64, options = {} of String => String)
         response = get("/1.1/users/show.json", options.merge({"user_id" => user_id.to_s}))
         Twitter::User.from_json(response)
       end
@@ -21,7 +21,7 @@ module Twitter
         Array(Twitter::User).from_json(response)
       end
 
-      def users(user_ids : Array(Int64), options = {} of String => String)
+      def users(user_ids : Array(Int32 | Int64), options = {} of String => String)
         response = post("/1.1/users/lookup.json", options.merge({"user_id" => user_ids.join(',')}))
         Array(Twitter::User).from_json(response)
       end

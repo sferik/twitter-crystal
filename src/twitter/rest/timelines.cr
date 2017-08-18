@@ -20,7 +20,7 @@ module Twitter
         Array(Twitter::Tweet).from_json(response)
       end
 
-      def user_timeline(user_id : Int32, options = {} of String => String)
+      def user_timeline(user_id : Int32 | Int64, options = {} of String => String)
         response = get("/1.1/statuses/user_timeline.json", options.merge({"user_id" => user_id.to_s}))
         Array(Twitter::Tweet).from_json(response)
       end

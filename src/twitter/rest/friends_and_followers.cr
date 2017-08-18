@@ -4,7 +4,7 @@ require "../user"
 module Twitter
   module REST
     module FriendsAndFollowers
-      def follow(user_id : Int64, options = {} of String => String) : Twitter::User
+      def follow(user_id : Int32 | Int64, options = {} of String => String) : Twitter::User
         response = post("/1.1/friendships/create.json", options.merge({ "user_id" => user_id.to_s }))
         Twitter::User.from_json(response)
       end
@@ -18,7 +18,7 @@ module Twitter
         follow(user.id, options)
       end
 
-      def unfollow(user_id : Int64, options = {} of String => String) : Twitter::User
+      def unfollow(user_id : Int32 | Int64, options = {} of String => String) : Twitter::User
         response = post("/1.1/friendships/destroy.json", options.merge({ "user_id" => user_id.to_s }))
         Twitter::User.from_json(response)
       end
@@ -32,12 +32,12 @@ module Twitter
         unfollow(user.id, options)
       end
 
-      def friend_ids(options = {} of String => String) : Array(Int64)
+      def friend_ids(options = {} of String => String) : Array(Int32 | Int64)
         response = get("/1.1/friends/ids.json", options)
         JSON.parse(response)["ids"].map{ |friend_id| friend_id.as_i64 }
       end
 
-      def follower_ids(options = {} of String => String) : Array(Int64)
+      def follower_ids(options = {} of String => String) : Array(Int32 | Int64)
         response = get("/1.1/followers/ids.json", options)
         JSON.parse(response)["ids"].map{ |follower_id| follower_id.as_i64 }
       end
