@@ -1,5 +1,6 @@
 require "./timelines"
 require "./users"
+require "./friends_and_followers"
 require "http/client"
 require "json"
 require "oauth"
@@ -10,6 +11,7 @@ module Twitter
     class Client
       include Twitter::REST::Users
       include Twitter::REST::Timelines
+      include Twitter::REST::FriendsAndFollowers
       Host = "api.twitter.com"
       property :access_token, :access_token_secret, :consumer_key, :consumer_secret, :user_agent
 
