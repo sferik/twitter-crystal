@@ -1,2 +1,2 @@
 require "spec"
-require "../src/twitter"
+require "../src/twitter-crystal"
