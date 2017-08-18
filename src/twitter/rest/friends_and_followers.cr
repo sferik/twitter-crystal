@@ -31,6 +31,16 @@ module Twitter
       def unfollow(user : Twitter::User, options = {} of String => String) : Twitter::User
         unfollow(user.id, options)
       end
+
+      def friend_ids(options = {} of String => String) : Array(Int64)
+        response = get("/1.1/friends/ids.json", options)
+        JSON.parse(response)["ids"].map{ |friend_id| friend_id.as_i64 }
+      end
+
+      def follower_ids(options = {} of String => String) : Array(Int64)
+        response = get("/1.1/followers/ids.json", options)
+        JSON.parse(response)["ids"].map{ |follower_id| follower_id.as_i64 }
+      end
     end
   end
 end
