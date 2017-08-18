@@ -21,12 +21,12 @@ module Twitter
         Array(Twitter::User).from_json(response)
       end
 
-      def users(user_ids : Array(Int32 | Int64), options = {} of String => String)
+      def users(*user_ids : Int32 | Int64, options = {} of String => String)
         response = post("/1.1/users/lookup.json", options.merge({"user_id" => user_ids.join(',')}))
         Array(Twitter::User).from_json(response)
       end
 
-      def users(screen_names : Array(String), options = {} of String => String)
+      def users(*screen_names : String, options = {} of String => String)
         response = post("/1.1/users/lookup.json", options.merge({"screen_name" => screen_names.join(',')}))
         Array(Twitter::User).from_json(response)
       end
