@@ -96,6 +96,9 @@ client.friend_ids
 client.get("/1.1/users/show.json", { "screen_name" => "sferik" })
 client.post("/1.1/statuses/update.json", { "status" => "The world is your oyster." })
 ```
+
+If you want to call the API directly, refer to the [API reference](https://dev.twitter.com/rest/reference).
+
 ## Contributing
 
 1. Fork it ( https://github.com/sferik/twitter-crystal/fork )
