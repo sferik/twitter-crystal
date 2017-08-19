@@ -61,4 +61,97 @@ describe Twitter::REST::Users do
       end
     end
   end
+
+  describe "#blocked" do
+    blocked = client.blocked
+    it "returns NamedTuple(users: Array(Twitter::User), cursor: Twitter::Cursor)" do
+      blocked.should be_a NamedTuple(users: Array(Twitter::User), cursor: Twitter::Cursor)
+      blocked[:users][0].name.should eq "Javier Heady"
+      blocked[:cursor].next_cursor.should eq 0
+    end
+  end
+
+  describe "#blocked_ids" do
+    blocked = client.blocked_ids
+    it "returns NamedTuple(ids: Array(Int64), cursor: Twitter::Cursor)" do
+      blocked.should be_a NamedTuple(ids: Array(Int64), cursor: Twitter::Cursor)
+      blocked[:ids][0].should eq 123
+      blocked[:cursor].next_cursor.should eq 0
+    end
+  end
+
+  describe "#block?" do
+    it { client.block?(123).should be_truthy }
+    it { client.block?(776284343173906432).should be_truthy }
+    it { client.block?(1234).should be_falsey }
+    it { client.block?("any_user").should be_truthy }
+  end
+
+  describe "#block" do
+    context "got String" do
+      user = client.block("theSeanCook")
+      it "returns Twitter::User" do
+        user.should be_a Twitter::User
+        user.id.should eq 38895958
+      end
+    end
+
+    context "got Int32" do
+      user = client.block(38895958)
+      it "returns Twitter::User" do
+        user.should be_a Twitter::User
+        user.id.should eq 38895958
+      end
+    end
+
+    context "got Int64" do
+      user = client.block(776284343173906432)
+      it "returns Twitter::User" do
+        user.should be_a Twitter::User
+        user.id.should eq 38895958 # always returns the same id because `Twitter::REST::Client#get` is stubbed
+      end
+    end
+
+    context "got Twitter::User" do
+      user = client.block(client.user)
+      it "returns Twitter::User" do
+        user.should be_a Twitter::User
+        user.id.should eq 38895958
+      end
+    end
+  end
+
+  describe "#unblock" do
+    context "got String" do
+      user = client.unblock("theSeanCook")
+      it "returns Twitter::User" do
+        user.should be_a Twitter::User
+        user.id.should eq 38895958
+      end
+    end
+
+    context "got Int32" do
+      user = client.unblock(38895958)
+      it "returns Twitter::User" do
+        user.should be_a Twitter::User
+        user.id.should eq 38895958
+      end
+    end
+
+    context "got Int64" do
+      user = client.unblock(776284343173906432)
+      it "returns Twitter::User" do
+        user.should be_a Twitter::User
+        user.id.should eq 38895958 # always returns the same id because `Twitter::REST::Client#get` is stubbed
+      end
+    end
+
+    context "got Twitter::User" do
+      user = client.unblock(client.user)
+      it "returns Twitter::User" do
+        user.should be_a Twitter::User
+        user.id.should eq 38895958
+      end
+    end
+  end
 end

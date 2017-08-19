@@ -14,7 +14,7 @@ module Twitter
       friends_count: Int32,
       geo_enabled: Bool,
       id: Int64,
-      is_translation_enabled: Bool,
+      is_translation_enabled: Bool?,
       is_translator: Bool,
       lang: String,
       listed_count: Int32,
