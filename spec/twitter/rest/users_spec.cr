@@ -1,3 +1,5 @@
+require "../../helper"
+
 describe Twitter::REST::Users do
   client = Mock::Client.new("CK", "CS", "AT", "AS", "UA")
 
