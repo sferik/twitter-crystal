@@ -5,11 +5,11 @@ module Mock
     end
 
     def get(path : String, params = {} of String => String)
-      JSON.parse(File.read("spec/mock#{path}")).to_json
+      File.read("spec/mock#{path}")
     end
 
     def post(path : String, form = {} of String => String)
-      JSON.parse(File.read("spec/mock#{path}")).to_json
+      File.read("spec/mock#{path}")
     end
   end
 end
