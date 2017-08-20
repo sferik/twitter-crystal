@@ -62,7 +62,7 @@ client.follow("kenta_s_dev")
 client.follow(776284343173906432)
 ```
 
-**Unfollw a user(by screen name or user_id)**
+**Unfollow a user(by screen name or user_id)**
 ```crystal
 client.unfollow("kenta_s_dev")
 client.unfollow(776284343173906432)
@@ -112,7 +112,7 @@ If you want to call the API directly, refer to the [API reference](https://dev.t
 
 The goal of the project is to have almost the same interfaces(methods) as those of https://github.com/sferik/twitter and there are a lot of things need to be done. Pull Requests are welcome :)
 
-## Contrinutors
+## Contributors
 
 - [sferik](https://github.com/sferik) Erik Michaels-Ober - creator
 - [kenta-s](https://github.com/kenta-s) Kenta Shirai - maintainer
