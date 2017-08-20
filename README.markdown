@@ -15,6 +15,7 @@ Add this to your application's `shard.yml`:
 dependencies:
   twitter-crystal:
     github: sferik/twitter-crystal
+    version: ~> 0.1.0
 ```
 
 In your terminal run:
@@ -110,3 +111,8 @@ If you want to call the API directly, refer to the [API reference](https://dev.t
 ### Pull Requests are very welcome!
 
 The goal of the project is to have almost the same interfaces(methods) as those of https://github.com/sferik/twitter and there are a lot of things need to be done. Pull Requests are welcome :)
+
+## Contrinutors
+
+- [sferik](https://github.com/sferik) Erik Michaels-Ober - creator
+- [kenta-s](https://github.com/kenta-s) Kenta Shirai - maintainer
