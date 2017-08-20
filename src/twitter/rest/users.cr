@@ -40,7 +40,7 @@ module Twitter
 
       def blocked_ids(options = {} of String => String) : Array(Int64)
         response = get("/1.1/blocks/ids.json", options)
-        JSON.parse(response)["ids"].map{ |id| id.as_i64 }
+        JSON.parse(response)["ids"].map { |id| id.as_i64 }
       end
 
       def block?(user_id : Int32 | Int64, options = {} of String => String) : Bool
@@ -56,12 +56,12 @@ module Twitter
       end
 
       def block(screen_name : String, options = {} of String => String) : Twitter::User
-        response = post("/1.1/blocks/create.json", options.merge({ "screen_name" => screen_name }))
+        response = post("/1.1/blocks/create.json", options.merge({"screen_name" => screen_name}))
         Twitter::User.from_json(response)
       end
 
       def block(user_id : Int32 | Int64, options = {} of String => String) : Twitter::User
-        response = post("/1.1/blocks/create.json", options.merge({ "user_id" => user_id.to_s }))
+        response = post("/1.1/blocks/create.json", options.merge({"user_id" => user_id.to_s}))
         Twitter::User.from_json(response)
       end
 
@@ -70,12 +70,12 @@ module Twitter
       end
 
       def unblock(screen_name : String, options = {} of String => String) : Twitter::User
-        response = post("/1.1/blocks/destroy.json", options.merge({ "screen_name" => screen_name }))
+        response = post("/1.1/blocks/destroy.json", options.merge({"screen_name" => screen_name}))
         Twitter::User.from_json(response)
       end
 
       def unblock(user_id : Int32 | Int64, options = {} of String => String) : Twitter::User
-        response = post("/1.1/blocks/destroy.json", options.merge({ "user_id" => user_id.to_s }))
+        response = post("/1.1/blocks/destroy.json", options.merge({"user_id" => user_id.to_s}))
         Twitter::User.from_json(response)
       end
 
