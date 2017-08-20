@@ -66,19 +66,17 @@ describe Twitter::REST::Users do
 
   describe "#blocked" do
     blocked = client.blocked
-    it "returns NamedTuple(users: Array(Twitter::User), cursor: Twitter::Cursor)" do
-      blocked.should be_a NamedTuple(users: Array(Twitter::User), cursor: Twitter::Cursor)
-      blocked[:users][0].name.should eq "Javier Heady"
-      blocked[:cursor].next_cursor.should eq 0
+    it "returns Array(Twitter::User)" do
+      blocked.should be_a Array(Twitter::User)
+      blocked[0].name.should eq "Javier Heady"
     end
   end
 
   describe "#blocked_ids" do
     blocked = client.blocked_ids
-    it "returns NamedTuple(ids: Array(Int64), cursor: Twitter::Cursor)" do
-      blocked.should be_a NamedTuple(ids: Array(Int64), cursor: Twitter::Cursor)
-      blocked[:ids][0].should eq 123
-      blocked[:cursor].next_cursor.should eq 0
+    it "returns Array(Int64)" do
+      blocked.should be_a Array(Int64)
+      blocked[0].should eq 123
     end
   end
 

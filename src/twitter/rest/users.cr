@@ -33,26 +33,22 @@ module Twitter
         Array(Twitter::User).from_json(response)
       end
 
-      def blocked(options = {} of String => String) : NamedTuple(users: Array(Twitter::User), cursor: Twitter::Cursor)
+      def blocked(options = {} of String => String) : Array(Twitter::User)
         response = get("/1.1/blocks/list.json", options)
-        users = Array(Twitter::User).from_json(JSON.parse(response)["users"].to_json)
-        cursor = Twitter::Cursor.from_json(response)
-        {users: users, cursor: cursor}
+        Array(Twitter::User).from_json(JSON.parse(response)["users"].to_json)
       end
 
-      def blocked_ids(options = {} of String => String) : NamedTuple(ids: Array(Int64), cursor: Twitter::Cursor)
+      def blocked_ids(options = {} of String => String) : Array(Int64)
         response = get("/1.1/blocks/ids.json", options)
-        ids = JSON.parse(response)["ids"].map{ |id| id.as_i64 }
-        cursor = Twitter::Cursor.from_json(response)
-        {ids: ids, cursor: cursor}
+        JSON.parse(response)["ids"].map{ |id| id.as_i64 }
       end
 
       def block?(user_id : Int32 | Int64, options = {} of String => String) : Bool
-        blocked_ids(options)[:ids].includes?(user_id)
+        blocked_ids(options).includes?(user_id)
       end
 
       def block?(user : Twitter::User, options = {} of String => String) : Bool
-        blocked_ids(options)[:ids].includes?(user.id)
+        blocked_ids(options).includes?(user.id)
       end
 
       def block?(screen_name : String, options = {} of String => String) : Bool
