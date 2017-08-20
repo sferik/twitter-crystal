@@ -4,7 +4,6 @@ describe Twitter::REST::Users do
   client = Mock::Client.new("CK", "CS", "AT", "AS", "UA")
 
   describe "#user" do
-
     context "without any args" do
       it "returns user: 7505382" do
         client.user.id.should eq 7505382

@@ -19,7 +19,7 @@ describe Twitter::REST::Client do
   describe "#get" do
     it "executes an HTTP GET" do
       client = Mock::ClientWithDummyHttpClient.new("CK", "CS", "AT", "AS", "UA")
-      path   = "/1.1/users/show.json"
+      path = "/1.1/users/show.json"
       options = {"screen_name" => "sferik"}
       expect_raises(Twitter::Errors::ClientError, "Invalid or expired token") do
         client.get(path, options)
@@ -30,7 +30,7 @@ describe Twitter::REST::Client do
   describe "#post" do
     it "executes an HTTP POST" do
       client = Mock::ClientWithDummyHttpClient.new("CK", "CS", "AT", "AS", "UA")
-      path   = "/1.1/friendships/create.json"
+      path = "/1.1/friendships/create.json"
       options = {"screen_name" => "kenta_s_dev"}
       expect_raises(Twitter::Errors::ClientError, "Invalid or expired token") do
         client.post(path, options)

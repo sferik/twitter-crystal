@@ -2,12 +2,12 @@ module Twitter
   module REST
     module Tweets # a.k.a Statuses
       def update(status : String, options = {} of String => String) : Twitter::Tweet
-        response = post("/1.1/statuses/update.json", options.merge({ "status" => status }))
+        response = post("/1.1/statuses/update.json", options.merge({"status" => status}))
         Twitter::Tweet.from_json(response)
       end
 
       def destroy_status(tweet_id : Int32 | Int64, options = {} of String => String) : Twitter::Tweet
-        response = post("/1.1/statuses/destroy.json", options.merge({ "id" => tweet_id.to_s }))
+        response = post("/1.1/statuses/destroy.json", options.merge({"id" => tweet_id.to_s}))
         Twitter::Tweet.from_json(response)
       end
 
@@ -16,7 +16,7 @@ module Twitter
       end
 
       def retweet(tweet_id : Int32 | Int64, options = {} of String => String) : Twitter::Tweet
-        response = post("/1.1/statuses/retweet.json", options.merge({ "id" => tweet_id.to_s }))
+        response = post("/1.1/statuses/retweet.json", options.merge({"id" => tweet_id.to_s}))
         Twitter::Tweet.from_json(response)
       end
 
@@ -25,7 +25,7 @@ module Twitter
       end
 
       def unretweet(tweet_id : Int32 | Int64, options = {} of String => String) : Twitter::Tweet
-        response = post("/1.1/statuses/unretweet.json", options.merge({ "id" => tweet_id.to_s }))
+        response = post("/1.1/statuses/unretweet.json", options.merge({"id" => tweet_id.to_s}))
         Twitter::Tweet.from_json(response)
       end
 
