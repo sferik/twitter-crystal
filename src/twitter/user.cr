@@ -8,7 +8,7 @@ module Twitter
       default_profile: Bool,
       default_profile_image: Bool,
       favourites_count: Int32,
-      follow_request_sent: Bool,
+      follow_request_sent: Bool?,
       followers_count: Int32,
       following: Bool?,
       friends_count: Int32,
