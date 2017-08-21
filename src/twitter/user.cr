@@ -18,7 +18,7 @@ module Twitter
       is_translator:                      Bool,
       lang:                               String,
       listed_count:                       Int32,
-      location:                           String,
+      location:                           String?,
       name:                               String,
       needs_phone_verification:           Bool?,
       notifications:                      Bool?,
