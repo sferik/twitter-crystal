@@ -87,6 +87,17 @@ module Twitter
         response = post("/1.1/account/update_profile.json", options)
         Twitter::User.from_json(response)
       end
+
+      # TODO: write test and check if it works
+      # def update_profile_background_image(base64_string : String, options = {} of String => String) : Twitter::User
+      #   response = post("/1.1/account/update_profile_background_image.json", options.merge({"image" => base64_string}))
+      #   Twitter::User.from_json(response)
+      # end
+
+      def update_profile_image(base64_string : String, options = {} of String => String) : Twitter::User
+        response = post("/1.1/account/update_profile_image.json", options.merge({"image" => base64_string}))
+        Twitter::User.from_json(response)
+      end
     end
   end
 end
