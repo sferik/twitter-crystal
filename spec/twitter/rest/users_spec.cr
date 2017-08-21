@@ -161,10 +161,17 @@ describe Twitter::REST::Users do
     it { user.description.should eq "Keep calm and rock on." }
   end
 
-  describe "#update_profile_imaeg" do
+  describe "#update_profile_image" do
     user = client.update_profile_image("base64encodedstringbase64encodedstringbase64encodedstring")
     it { user.should be_a Twitter::User }
     it { user.name.should eq "kenta-s" }
     it { user.description.should eq "with great power comes great responsibility." }
+  end
+
+  describe "#update_profile_background_image" do
+    user = client.update_profile_background_image({"image" => "base64encodedstringbase64encodedstringbase64encodedstring"})
+    it { user.should be_a Twitter::User }
+    it { user.name.should eq "Sean Test" }
+    it { user.description.should eq "Keep calm and test" }
   end
 end
