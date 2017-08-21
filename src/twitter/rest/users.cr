@@ -82,6 +82,11 @@ module Twitter
       def unblock(user : Twitter::User, options = {} of String => String) : Twitter::User
         unblock(user.id)
       end
+
+      def update_profile(options = {} of String => String) : Twitter::User
+        response = post("/1.1/account/update_profile.json", options)
+        Twitter::User.from_json(response)
+      end
     end
   end
 end

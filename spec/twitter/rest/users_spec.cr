@@ -153,4 +153,11 @@ describe Twitter::REST::Users do
       end
     end
   end
+
+  describe "#update_profile" do
+    user = client.update_profile({"name" => "Sean Cook", "description" => "Keep calm and rock on."})
+    it { user.should be_a Twitter::User }
+    it { user.name.should eq "Sean Cook" }
+    it { user.description.should eq "Keep calm and rock on." }
+  end
 end

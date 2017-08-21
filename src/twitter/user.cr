@@ -44,6 +44,7 @@ module Twitter
       url:                                String?,
       utc_offset:                         Int32?,
       verified:                           Bool,
+      description:                        String?,
     })
     def_equals id
   end
