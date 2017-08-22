@@ -174,4 +174,9 @@ describe Twitter::REST::Users do
     it { user.name.should eq "Sean Test" }
     it { user.description.should eq "Keep calm and test" }
   end
+
+  describe "#update_profile_banner" do
+    response = client.update_profile_banner("base64encodedstringbase64encodedstringbase64encodedstring")
+    it { response.should be_a Nil }
+  end
 end

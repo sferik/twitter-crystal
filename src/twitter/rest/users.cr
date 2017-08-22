@@ -97,6 +97,11 @@ module Twitter
         response = post("/1.1/account/update_profile_image.json", options.merge({"image" => base64_string}))
         Twitter::User.from_json(response)
       end
+
+      def update_profile_banner(base64_string : String, options = {} of String => String) : Nil
+        response = post("/1.1/account/update_profile_banner.json", options.merge({"banner" => base64_string}))
+        nil # this API returns an empty body
+      end
     end
   end
 end
