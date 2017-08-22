@@ -110,7 +110,7 @@ If you want to call the API directly, refer to the [API reference](https://dev.t
 
 ### Pull Requests are very welcome!
 
-The goal of the project is to have almost the same interfaces(methods) as those of https://github.com/sferik/twitter and there are a lot of things need to be done. Pull Requests are welcome :)
+The goal of the project is to implement all methods to call [Twitter REST API](https://dev.twitter.com/rest/public). There are a lot of things need to be done. Pull Requests are welcome :)
 
 ## Contributors
 
