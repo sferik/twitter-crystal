@@ -98,9 +98,9 @@ module Twitter
         Twitter::User.from_json(response)
       end
 
-      def update_profile_banner(base64_string : String, options = {} of String => String) : Nil
+      def update_profile_banner(base64_string : String, options = {} of String => String) : Void
         response = post("/1.1/account/update_profile_banner.json", options.merge({"banner" => base64_string}))
-        nil # this API returns an empty body
+        Void # this API returns an empty body, so this method returns nothing
       end
     end
   end
