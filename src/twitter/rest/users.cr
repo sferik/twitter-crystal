@@ -102,6 +102,16 @@ module Twitter
         response = post("/1.1/account/update_profile_banner.json", options.merge({"banner" => base64_string}))
         Void # this API returns an empty body, so this method returns nothing
       end
+
+      def mute(options = {} of String => String) : Twitter::User
+        response = post("/1.1/mutes/users/create.json", options)
+        Twitter::User.from_json(response)
+      end
+
+      def unmute(options = {} of String => String) : Twitter::User
+        response = post("/1.1/mutes/users/destroy.json", options)
+        Twitter::User.from_json(response)
+      end
     end
   end
 end
