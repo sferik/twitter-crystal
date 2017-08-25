@@ -179,4 +179,26 @@ describe Twitter::REST::Users do
     response = client.update_profile_banner("base64encodedstringbase64encodedstringbase64encodedstring")
     it { response.should be_a Nil }
   end
+
+  describe "#mute" do
+    user = client.mute({"screen_name" => "kenta_s_dev"})
+    it "returns a Twitter::User" do
+      user.should be_a Twitter::User
+    end
+
+    it "returns a Twitter::User whose name is kenta-s" do
+      user.name.should eq "kenta-s"
+    end
+  end
+
+  describe "#unmute" do
+    user = client.unmute({"screen_name" => "evilpiper"})
+    it "returns a Twitter::User" do
+      user.should be_a Twitter::User
+    end
+
+    it "returns a Twitter::User whose name is Evil Piper" do
+      user.name.should eq "Evil Piper"
+    end
+  end
 end
