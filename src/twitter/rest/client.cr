@@ -1,8 +1,3 @@
-require "./timelines"
-require "./users"
-require "./friends_and_followers"
-require "./tweets"
-require "./search"
 require "http/client"
 require "json"
 require "oauth"
@@ -11,15 +6,17 @@ require "uri"
 module Twitter
   module REST
     class Client
-      include Twitter::REST::Users
-      include Twitter::REST::Timelines
-      include Twitter::REST::FriendsAndFollowers
-      include Twitter::REST::Tweets
-      include Twitter::REST::Search
-      Host = "api.twitter.com"
-      property :access_token, :access_token_secret, :consumer_key, :consumer_secret, :user_agent
+      include Twitter::REST::API
 
-      def initialize(@consumer_key : String, @consumer_secret : String, @access_token : String, @access_token_secret : String, @user_agent : Nil | String = nil)
+      Host = "api.twitter.com"
+
+      property access_token : String
+      property access_token_secret : String
+      property consumer_key : String
+      property consumer_secret : String
+      property user_agent : String?
+
+      def initialize(@consumer_key, @consumer_secret, @access_token, @access_token_secret, @user_agent = nil)
         @user_agent ||= "CrystalTwitterClient/#{Twitter::Version.to_s}"
         consumer = OAuth::Consumer.new(Host, consumer_key, consumer_secret)
         access_token = OAuth::AccessToken.new(access_token, access_token_secret)
