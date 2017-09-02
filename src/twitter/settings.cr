@@ -7,6 +7,10 @@ module Twitter
       end_time: String?,
       start_time: String?,
     )
+
+    def initialize
+      @enabled = false
+    end
   end
 
   class TimeZone
@@ -20,7 +24,7 @@ module Twitter
   class Settings
     JSON.mapping(
       sleep_time: SleepTime?,
-      time_zone: TimeZone?,
+      time_zone: TimeZone,
       protected: Bool?,
       screen_name: String,
       always_use_https: Bool?,
@@ -35,5 +39,11 @@ module Twitter
       allow_dm_groups_from: String?,
       translator_type: String?,
     )
+
+    def initialize
+      @time_zone = TimeZone.new
+      @screen_name = ""
+      @geo_enabled = false
+    end
   end
 end
