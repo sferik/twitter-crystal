@@ -13,7 +13,7 @@ describe Twitter::REST::Account do
     end
 
     context "called with no args" do
-      options =  { "time_zone" => "Pacific Time (US & Canada)" }
+      options = {"time_zone" => "Pacific Time (US & Canada)"}
       settings = client.settings(options)
       it "returns Twitter::Settings" do
         settings.should be_a Twitter::Settings
