@@ -1,9 +1,9 @@
 module Twitter
   module REST
     module DirectMessages
-      def direct_messages_received(options = {} of String => String) : Twitter::DirectMessage
+      def direct_messages_received(options = {} of String => String) : Array(Twitter::DirectMessage)
         response = get("/1.1/direct_messages.json", options)
-        Twitter::DirectMessage.from_json(response)
+        Array(Twitter::DirectMessage).from_json(response)
       end
     end
   end
