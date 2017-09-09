@@ -10,6 +10,12 @@ module Twitter
         response = get("/1.1/direct_messages/sent.json", options)
         Array(Twitter::DirectMessage).from_json(response)
       end
+
+      def direct_message(id : Int32 | Int64, options = {} of String => String) : Twitter::DirectMessage
+        options["id"] = id.to_s
+        response = get("/1.1/direct_messages/show.json", options)
+        Twitter::DirectMessage.from_json(JSON.parse(response)[0].to_json)
+      end
     end
   end
 end
