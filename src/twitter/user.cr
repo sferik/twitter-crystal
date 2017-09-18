@@ -30,7 +30,7 @@ module Twitter
       profile_image_url:                  String?,
       profile_image_url_https:            String?,
       profile_link_color:                 String,
-      profile_location:                   String?,
+      profile_location:                   String | Location | Nil,
       profile_sidebar_border_color:       String,
       profile_sidebar_fill_color:         String,
       profile_text_color:                 String,
