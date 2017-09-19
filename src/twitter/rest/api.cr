@@ -3,7 +3,6 @@ require "./users"
 require "./friends_and_followers"
 require "./tweets"
 require "./search"
-require "./account"
 require "./direct_messages"
 
 module Twitter
@@ -14,7 +13,6 @@ module Twitter
       include Twitter::REST::FriendsAndFollowers
       include Twitter::REST::Tweets
       include Twitter::REST::Search
-      include Twitter::REST::Account
       include Twitter::REST::DirectMessages
     end
   end
