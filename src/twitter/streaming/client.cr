@@ -17,11 +17,12 @@ module Twitter
       property user_agent : String?
       property http_client : HTTP::Client
 
-      def initialize(@consumer_key, @consumer_secret, @access_token, @access_token_secret, @user_agent = nil)
+      def initialize(@consumer_key, @consumer_secret, @access_token, @access_token_secret, @user_agent = nil, connect_timeout : Time::Span? = 30.seconds)
         @user_agent ||= "CrystalTwitterClient/#{Twitter::Version.to_s}"
         consumer = OAuth::Consumer.new(Host, consumer_key, consumer_secret)
         access_token = OAuth::AccessToken.new(access_token, access_token_secret)
         @http_client = HTTP::Client.new(Host, tls: true)
+        @http_client.connect_timeout = connect_timeout if connect_timeout
         consumer.authenticate(http_client, access_token)
       end
 
