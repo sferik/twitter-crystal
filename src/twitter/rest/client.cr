@@ -31,7 +31,7 @@ module Twitter
       end
 
       def post(path : String, form = {} of String => String)
-        response = @http_client.post_form(path, form)
+        response = @http_client.post(path, form: form)
         handle_response(response)
       end
 
