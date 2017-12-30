@@ -15,7 +15,7 @@ Add this to your application's `shard.yml`:
 dependencies:
   twitter-crystal:
     github: sferik/twitter-crystal
-    version: ~> 0.2.0
+    version: ~> 0.2.1
 ```
 
 In your terminal run:
