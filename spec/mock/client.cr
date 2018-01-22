@@ -23,7 +23,7 @@ module Mock
       HTTP::Client::Response.new(400, %({"errors":[{"code":400,"message":"Invalid or expired token"}]}))
     end
 
-    def post_form(path : String, form = {} of String => String)
+    def post(path : String, form = {} of String => String)
       HTTP::Client::Response.new(400, %({"errors":[{"code":400,"message":"Invalid or expired token"}]}))
     end
   end

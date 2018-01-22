@@ -1,8 +1,8 @@
 module Twitter
   module Version
     Major = 0
-    Minor = 1
-    Patch = 0
+    Minor = 2
+    Patch = 1
 
     def self.to_s
       [Major, Minor, Patch].join('.')

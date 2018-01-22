@@ -3,6 +3,15 @@ require "../cursor"
 module Twitter
   module REST
     module Users
+      def settings(options = {} of String => String)
+        response = if options.size.zero?
+                     get("/1.1/account/settings.json")
+                   else
+                     post("/1.1/account/settings.json", options)
+                   end
+        Twitter::Settings.from_json(response)
+      end
+
       def user(options = {} of String => String) : Twitter::User
         response = get("/1.1/account/verify_credentials.json", options)
         Twitter::User.from_json(response)
