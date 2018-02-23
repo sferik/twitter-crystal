@@ -32,6 +32,12 @@ module Twitter
       def unretweet(tweet : Twitter::Tweet, options = {} of String => String) : Twitter::Tweet
         unretweet(tweet.id)
       end
+
+      # Fetch a particular Tweet by *id*
+      def status(id : Int32 | Int64) : Twitter::Tweet
+        response = get("/1.1/statuses/show.json", {"id" => id.to_s})
+        Twitter::Tweet.from_json(response)
+      end
     end
   end
 end
