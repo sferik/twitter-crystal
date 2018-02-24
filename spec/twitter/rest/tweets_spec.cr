@@ -23,10 +23,22 @@ describe Twitter::REST::Tweets do
     end
 
     context "called with Int64" do
-      tweet = client.destroy_status(240854986559455234)
+      tweet = client.status(240854986559455234)
       it "returns Twitter::Tweet" do
         tweet.should be_a Twitter::Tweet
         tweet.text.should eq "\"Vimeo integrates with Dropbox for easier video uploads and shares\": http://t.co/7UlkvZzM"
+      end
+    end
+
+    context "Tweet with Twitter Place" do
+      tweet = client.status(240854986559455234)
+      it "returns Twitter::Tweet with Twitter::Place" do
+        tweet.should be_a Twitter::Tweet
+        tweet.place.should be_a Twitter::Place?
+
+        place = tweet.place.not_nil!
+        place.name.should eq "McIntosh Lake"
+        place.country.should eq "United States"
       end
     end
   end
