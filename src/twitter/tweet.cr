@@ -11,6 +11,7 @@ module Twitter
       in_reply_to_status_id:   Int64?,
       in_reply_to_user_id:     Int64?,
       lang:                    String?,
+      place:                   Twitter::Place?,
       retweet_count:           Int32,
       retweeted:               Bool,
       retweeted_status:        Tweet?,
