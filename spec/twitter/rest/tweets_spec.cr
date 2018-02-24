@@ -13,6 +13,24 @@ describe Twitter::REST::Tweets do
     end
   end
 
+  describe "#status" do
+    context "called with Int32" do
+      tweet = client.status(12345)
+      it "returns Twitter::Tweet" do
+        tweet.should be_a Twitter::Tweet
+        tweet.text.should eq "\"Vimeo integrates with Dropbox for easier video uploads and shares\": http://t.co/7UlkvZzM"
+      end
+    end
+
+    context "called with Int64" do
+      tweet = client.destroy_status(240854986559455234)
+      it "returns Twitter::Tweet" do
+        tweet.should be_a Twitter::Tweet
+        tweet.text.should eq "\"Vimeo integrates with Dropbox for easier video uploads and shares\": http://t.co/7UlkvZzM"
+      end
+    end
+  end
+
   describe "#destroy_status" do
     context "called with Int32" do
       tweet = client.destroy_status(12345)

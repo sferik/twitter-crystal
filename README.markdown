@@ -56,6 +56,12 @@ client.update("Good morning")
 client.destroy_status(897099923128172545)
 ```
 
+**Fetch a particular Tweet by ID**
+
+```crystal
+client.status(950491199454044162)
+```
+
 **Follow a user(by screen name or user_id)**
 ```crystal
 client.follow("kenta_s_dev")
