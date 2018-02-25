@@ -104,6 +104,18 @@ client.get("/1.1/users/show.json", { "screen_name" => "sferik" })
 client.post("/1.1/statuses/update.json", { "status" => "The world is your oyster." })
 ```
 
+### Streaming
+
+```crystal
+client = Twitter::Streaming::Client.new(consumer_key, consumer_secret, access_token, access_token_secret)
+
+# This will block the thread
+# The block will be yielded each time a new tweet (or delete) received
+@client.sample do |content|
+  p content
+end
+```
+
 If you want to call the API directly, refer to the [API reference](https://dev.twitter.com/rest/reference).
 
 ## Contributing
