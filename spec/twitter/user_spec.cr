@@ -6,7 +6,7 @@ describe Twitter::User do
       json = JSON.parse(File.read("./spec/fixtures/users.json"))[0].to_json
       user = Twitter::User.from_json(json)
       user.contributors_enabled.should eq(false)
-      user.created_at.should eq(Time.parse("Mon Jul 16 12:59:01 +0000 2007", "%a %b %d %T +0000 %Y"))
+      user.created_at.should eq(Time.parse("Mon Jul 16 12:59:01 +0000 2007", "%a %b %d %T %z %Y"))
       user.default_profile.should eq(false)
       user.default_profile_image.should eq(false)
       user.favourites_count.should eq(14447)

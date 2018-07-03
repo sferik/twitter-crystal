@@ -8,7 +8,7 @@ module Twitter
     class Client
       include Twitter::REST::API
 
-      Host = "api.twitter.com"
+      HOST = "api.twitter.com"
 
       property access_token : String
       property access_token_secret : String
@@ -18,9 +18,9 @@ module Twitter
 
       def initialize(@consumer_key, @consumer_secret, @access_token, @access_token_secret, @user_agent = nil)
         @user_agent ||= "CrystalTwitterClient/#{Twitter::Version.to_s}"
-        consumer = OAuth::Consumer.new(Host, consumer_key, consumer_secret)
+        consumer = OAuth::Consumer.new(HOST, consumer_key, consumer_secret)
         access_token = OAuth::AccessToken.new(access_token, access_token_secret)
-        @http_client = HTTP::Client.new(Host, tls: true)
+        @http_client = HTTP::Client.new(HOST, tls: true)
         consumer.authenticate(@http_client, access_token)
       end
 
