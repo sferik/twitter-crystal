@@ -9,7 +9,6 @@ describe Twitter::REST::FriendsAndFollowers do
       it "returns Twitter::User" do
         user.should be_a Twitter::User
         user.name.should eq "Doug Williams"
-        user.following.should be_truthy
       end
     end
     context "called with Int64" do
@@ -17,7 +16,6 @@ describe Twitter::REST::FriendsAndFollowers do
       it "returns Twitter::User" do
         user.should be_a Twitter::User
         user.name.should eq "Doug Williams"
-        user.following.should be_truthy
       end
     end
 
@@ -26,7 +24,6 @@ describe Twitter::REST::FriendsAndFollowers do
       it "returns Twitter::User" do
         user.should be_a Twitter::User
         user.name.should eq "Doug Williams"
-        user.following.should be_truthy
       end
     end
 
@@ -36,7 +33,6 @@ describe Twitter::REST::FriendsAndFollowers do
       it "returns Twitter::User" do
         user.should be_a Twitter::User
         user.name.should eq "Doug Williams"
-        user.following.should be_truthy
       end
     end
   end
@@ -47,7 +43,6 @@ describe Twitter::REST::FriendsAndFollowers do
       it "returns Twitter::User" do
         user.should be_a Twitter::User
         user.name.should eq "Doug Williams"
-        user.following.should be_falsey
       end
     end
 
@@ -56,7 +51,6 @@ describe Twitter::REST::FriendsAndFollowers do
       it "returns Twitter::User" do
         user.should be_a Twitter::User
         user.name.should eq "Doug Williams"
-        user.following.should be_falsey
       end
     end
 
@@ -65,7 +59,6 @@ describe Twitter::REST::FriendsAndFollowers do
       it "returns Twitter::User" do
         user.should be_a Twitter::User
         user.name.should eq "Doug Williams"
-        user.following.should be_falsey
       end
     end
 
@@ -75,7 +68,6 @@ describe Twitter::REST::FriendsAndFollowers do
       it "returns Twitter::User" do
         user.should be_a Twitter::User
         user.name.should eq "Doug Williams"
-        user.following.should be_falsey
       end
     end
   end

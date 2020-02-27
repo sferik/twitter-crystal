@@ -49,7 +49,7 @@ module Twitter
 
       def blocked_ids(options = {} of String => String) : Array(Int64)
         response = get("/1.1/blocks/ids.json", options)
-        JSON.parse(response)["ids"].map { |id| id.as_i64 }
+        JSON.parse(response)["ids"].as_a.map { |id| id.as_i64 }
       end
 
       def block?(user_id : Int32 | Int64, options = {} of String => String) : Bool
