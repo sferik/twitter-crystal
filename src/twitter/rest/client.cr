@@ -35,6 +35,11 @@ module Twitter
         handle_response(response)
       end
 
+      def delete(path : String, params = {} of String => String)
+        response = @http_client.delete(path)
+        handle_response(response)
+      end
+
       private def handle_response(response : HTTP::Client::Response)
         case response.status_code
         when 200..299
